@@ -1,59 +1,71 @@
-# ListaDeElementos
+# Lista de Elementos en Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Esta es una aplicación sencilla creada con Angular que permite agregar elementos a una lista. El objetivo principal fue aprender a manejar componentes standalone y trabajar con listas dinámicas.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Cómo ejecutar el proyecto
 
-```bash
-ng serve
-```
+1. Clona el repositorio:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+   ```bash
+   git clone https://github.com/HectorSantanaC/lista-de-elementos-angular
+   ```
+2. Entra a la carpeta del proyecto:
 
-## Code scaffolding
+   ```bash
+   cd lista-de-elementos
+   ```
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+3. Instala las dependencias:
 
-```bash
-ng generate component component-name
-```
+   ```bash
+   npm install
+   ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+3. Inicia el servidor de desarrollo:
 
-```bash
-ng generate --help
-```
+   ```bash
+   ng serve
+   ```
 
-## Building
+4. Abre el navegador en:
 
-To build the project run:
+   ```bash
+   http://localhost:4200
+   ```
 
-```bash
-ng build
-```
+## 📝 Informe de Desarrollo – Desafíos y Reflexión
+### 📌 Descripción del proyecto
+Esta aplicación permite al usuario introducir un texto y agregarlo a una lista visible. Utiliza Angular con componentes standalone para manejar el input y el listado de elementos.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 🚧 Desafíos encontrados y cómo los resolví
+#### 1. Formulario recargaba la página
+- Problema: Al usar la etiqueta form, el botón recargaba la página al hacer clic.
 
-## Running unit tests
+- Solución: Reemplacé el formulario por un div con un input y un button para evitar el comportamiento por defecto del navegador.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+#### 2. No se limpiaba el input después de agregar
+- Problema: Tras añadir un elemento, el campo de texto seguía con el valor anterior.
 
-```bash
-ng test
-```
+- Solución: Usé una referencia local (#elementoInput) y, después de agregar el valor, le asigné input.value = '' directamente desde el componente.
 
-## Running end-to-end tests
+#### 3. Evitar elementos vacíos
+- Problema: Si se pulsaba el botón sin texto, se añadía un string vacío.
 
-For end-to-end (e2e) testing, run:
+- Solución: Utilicé .trim() para eliminar los espacios en blanco al inicio y final del texto ingresado, asegurando que no se agreguen elementos vacíos o con espacios sin contenido real, y una condición if para validar antes de agregarlo. También añadí un alert() en caso de texto vacío.
 
-```bash
-ng e2e
-```
+#### 4. Error al usar *ngFor
+- Problema: Angular mostraba errores al usar *ngFor.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Solución: Como el componente es standalone, agregué CommonModule en el array imports del decorador @Component.
 
-## Additional Resources
+### 💡 Lecciones aprendidas
+- Comprendí cómo acceder al valor de un input con una referencia local.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Aprendí a manejar errores comunes de Angular leyendo el mensaje del compilador.
+
+- Me familiaricé con la estructura modular de Angular y la importancia de importar los módulos necesarios.
+
+### ✅ Conclusión
+Este pequeño proyecto me ayudó a afianzar conceptos clave de Angular, como la manipulación del DOM, el uso de componentes standalone y el manejo de listas dinámicas. A pesar de los errores iniciales, logré resolver cada problema y aprendí mucho durante el proceso.
