@@ -1,0 +1,17 @@
+<h1>Gestión de Lista de Elementos</h1>
+<section>
+  <div class="formulario">
+    <p>Introduce un elemento para agregarlo a la lista</p>
+    <div>
+      <input #elementoInput type="text">
+      <button type="button" (click)="agregarElemento(elementoInput)">Agregar</button>
+    </div>
+  </div>
+
+  <div class="lista">
+    <h3>Lista de elementos:</h3>
+    <ul>
+      <li *ngFor="let elemento of elementos">{{ elemento }}</li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.formulario {
+  text-align: center;
+
+  button {
+    background-color: #4EA8DE;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0.5rem;
+  }
+
+  button:hover {
+    background-color: #FFF;
+    color: #4EA8DE;
+  }
+}
+
+.lista {
+  ul {
+    list-style: circle;
+  }
+}
+
+@media (max-width: 700px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lista {
+    margin-top: 1.5rem;
+
+    ul {
+      text-align: left;
+    }
+  }
+}
